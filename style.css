@@ -5,11 +5,28 @@
   padding: 10px;
 }
 
+/* .icons {
+  position: relative;
+  margin-top: -145px;
+  text-align: center;
+  margin-left: 170px;
+} */
+
 .icons {
   position: relative;
   margin-top: -145px;
   text-align: center;
   margin-left: 170px;
+  opacity: 30%;
+  transition:opacity 1s;
+}
+.icons:hover {
+  position: relative;
+  margin-top: -145px;
+  text-align: center;
+  margin-left: 170px;
+  opacity:100%;
+  transition:opacity 1s;
 }
 
 .first-section {
@@ -22,14 +39,14 @@
 
 .delete {
   position: absolute;
-  margin-left: -110px;
+  margin-left: -108px;
   color: gray;
   font-size: 15px;
   background-color: rgb(128, 128, 128, 0.5);
   border-radius: 50%;
   width: 15px;
   height: 15px;
-  padding: 20px;
+  padding: 20px;  
 }
 
 .record {
@@ -98,6 +115,7 @@
   margin-top: -280px;
   margin-left: 320px;
   font-size: 30px;
+  cursor: pointer;
 }
 
 h2 {
@@ -131,6 +149,7 @@ h2 {
   color: white;
   /* transform: rotate(-90deg); */
   -webkit-transform: rotate(90deg) translateZ(0);
+  cursor: pointer;
 }
 
 .cross {
