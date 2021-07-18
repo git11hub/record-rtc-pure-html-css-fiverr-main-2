@@ -16,14 +16,15 @@
         margin-top:-379px; 
         margin-left:634px
       }
+      
     </style>
 </head>
 <body class="container">
     <!-- First Section -->
     <div class="first-section">
         <h2>First Section</h2>
-        <video width="640" height="480" controls>
-            <source src="media/sampleVideo.mp4" type="video/mp4">
+        <video id="videoElement" autoplay="true" style="background-image: linear-gradient(black, white, black)" width="640" height="480">
+            <!-- <source src="media/sampleVideo.mkv" type="video/mp4"> -->
             Your browser does not support the video tag.
           </video>
           <div class="icons">
@@ -42,23 +43,24 @@
     <!-- Second Section -->
     <div class="second-section">
         <h2>Second Section</h2>
-        <video width="640" height="480" controls>
-          <source src="media/sampleVideo2.mp4" type="video/mp4">
+        <video style="background-image: linear-gradient(black, white, black)" width="640" height="480">
+          <source src="media/sampleVideo.mkv" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-          <div class="icons">
-            <div style="display:flex" class="time">              
-                <i style="color:red; margin-top: 17px; margin-right:5px" class="fas fa-circle"></i>
-                <p>00:04:27</p>
-            </div>
+
+          <div style="display:flex; position: absolute; margin-left: 287px; margin-top:-200px;" class="time">              
+            <i style="color:red; margin-top: 17px; margin-right:5px" class="fas fa-circle"></i>
+            <p>00:04:27</p>
+          </div>
+          <div class="icons">            
               <i class="far fa-trash-alt delete"></i>
               <a href="#"><i class="fas fa-pause-circle record-pause"></i></a>
               <i class="far fa-paper-plane send"></i>
           </div>
-          <div style="margin-top:-347px" class="setting">
+          <div class="setting">
             <i class="fas fa-cog"></i>
           </div>
-          <div id="second-cross" class="cross">
+          <div class="cross">
               <i class="fas fa-times"></i>
           </div>
     </div>
@@ -66,7 +68,8 @@
     <!-- Third Section -->
     <div class="third-section">
         <h2>Third Section</h2>
-        <video width="640" height="480" controls>
+        <video style="background-image: linear-gradient(black, white, black)" width="640" height="480" controls>
+          <source src="media/sampleVideo.mkv" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <div class="play">
@@ -100,6 +103,19 @@
           },200);
         })
       })
+
+      // video stream from here...
+      var video = document.querySelector("#videoElement");
+
+      if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true })
+          .then(function (stream) {
+            video.srcObject = stream;
+          })
+          .catch(function (err0r) {
+            console.log("Something went wrong!");
+          });
+      }
     </script>  
 </body>
 </html>
