@@ -54,13 +54,13 @@
     <!-- Second Section -->
     <div class="second-section">
         <h2>Second Section</h2>
-        <video style="background-image: linear-gradient(black, white, black)" width="640" height="480">
-          <source src="media/sampleVideo.mkv" type="video/mp4">
+        <video id="videoElement2" autoplay="true" style="background-image: linear-gradient(black, white, black)" width="640" height="480">
+          <!-- <source src="media/sampleVideo.mkv" type="video/mp4"> -->
             Your browser does not support the video tag.
           </video>
 
           <div style="display:flex; position: absolute; margin-left: 287px; margin-top:-200px;" class="time">              
-            <i style="color:red; margin-top: 17px; margin-right:5px" class="fas fa-circle"></i>
+            <i style="color:white; margin-top: 17px; margin-right:5px" class="fas fa-pause"></i>
             <p>00:04:27</p>
           </div>
           <div class="icons">            
@@ -79,16 +79,16 @@
     <!-- Third Section -->
     <div class="third-section">
         <h2>Third Section</h2>
-        <video style="background-image: linear-gradient(black, white, black)" width="640" height="480" controls>
-          <source src="media/sampleVideo.mkv" type="video/mp4">
+        <video style="background-image: linear-gradient(black, white, black)" width="640" height="480" autoplay="true">
+          <source src="media/vdotest.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-          <div class="play">
+          <!-- <div class="play">
             <i class="fas fa-play"></i>
-          </div>
+          </div> -->
           <div class="icons">
               <i style="color: white; cursor: pointer;" class="far fa-trash-alt delete"></i>
-              <a href="#"><i class="fas fa-circle record"></i></a>
+              <i style="color: white; cursor: pointer; font-size:20px; width:20px; padding: 20px" class="fas fa-play record"></i>
               <i style="color: white; cursor: pointer; background-color: rgb(17, 172, 233);" class="far fa-paper-plane send"></i>
           </div>
           <div class="setting">
@@ -122,6 +122,18 @@
         navigator.mediaDevices.getUserMedia({ video: true })
           .then(function (stream) {
             video.srcObject = stream;
+          })
+          .catch(function (err0r) {
+            console.log("Something went wrong!");
+          });
+      }
+      // video2 stream from here...
+      var video2 = document.querySelector("#videoElement2");
+
+      if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true })
+          .then(function (stream) {
+            video2.srcObject = stream;
           })
           .catch(function (err0r) {
             console.log("Something went wrong!");
