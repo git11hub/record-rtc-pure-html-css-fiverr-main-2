@@ -1,3 +1,4 @@
+
 .container {
   max-width: 500px;
   margin: auto;
@@ -39,13 +40,6 @@
   border-radius: 5px;
 }
 
-/* .icons {
-  position: relative;
-  margin-top: -145px;
-  text-align: center;
-  margin-left: 170px;
-} */
-
 .icons {
   position: relative;
   margin-top: -145px;
@@ -68,7 +62,7 @@
 }
 
 .first-section video {
-  border-radius: 20px;
+  /* border-radius: 20px; */
 }
 
 .delete {
@@ -235,3 +229,4 @@ span {
     opacity: 0px;
   }
 }
+ 

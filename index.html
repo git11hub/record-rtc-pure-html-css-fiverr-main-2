@@ -16,28 +16,31 @@
         margin-top:-379px; 
         margin-left:634px
       }
-      
     </style>
+
 </head>
 <body class="container">
-    <!-- Asking Camera Permission -->
+    <!-- Asking Camera Permission -->    
     <div class="">
         <h2>Asking Camera Permission (Modal)</h2>
-        <!-- <video autoplay="true" style="background-image: linear-gradient(black, white, black)" width="640" height="480">
-          </video> -->
           <div class="camera-permission">
             <p>ASK FOR MIC/CAMERA PERMISSION HERE IF NOT SET AT TIME OF INSTALL</p>
             <button class="start-btn">START</button>
+            <div class="cross">
+              <i class="fas fa-times"></i>
+          </div>
           </div>
     </div>
 
     <!-- First Section -->
-    <div class="first-section">
+    <div style="margin: 0 auto; padding: 0" class="first-section">
         <h2>First Section</h2>
-        <video id="videoElement" autoplay="true" style="background-image: linear-gradient(black, white, black)" width="640" height="480">
-            <!-- <source src="media/sampleVideo.mkv" type="video/mp4"> -->
+        <div style="width:640px; height:480px; overflow:hidden; border-radius:20px">
+          <video muted id="videoElement" autoplay style="background-image: linear-gradient(black, white, black); width:853px; margin-top:-80px">
+            <source src="media/sampleVideo.mkv" type="video/mp4">
             Your browser does not support the video tag.
           </video>
+        </div>
           <div class="icons">
               <i class="far fa-trash-alt delete"></i>
               <a href="#"><i class="fas fa-circle record"></i></a>
@@ -54,10 +57,13 @@
     <!-- Second Section -->
     <div class="second-section">
         <h2>Second Section</h2>
-        <video id="videoElement2" autoplay="true" style="background-image: linear-gradient(black, white, black)" width="640" height="480">
-          <!-- <source src="media/sampleVideo.mkv" type="video/mp4"> -->
-            Your browser does not support the video tag.
-          </video>
+        <div style="width:640px; height:480px; overflow:hidden; border-radius:20px">
+          <video id="videoElement2" autoplay="true" style="background-image: linear-gradient(black, white, black); width:853px; margin-top:-80px">
+            <!-- <source src="media/sampleVideo.mkv" type="video/mp4"> -->
+              Your browser does not support the video tag.
+            </video>
+        </div>
+        
 
           <div style="display:flex; position: absolute; margin-left: 287px; margin-top:-200px;" class="time">              
             <i style="color:white; margin-top: 17px; margin-right:5px" class="fas fa-pause"></i>
@@ -65,7 +71,9 @@
           </div>
           <div class="icons">            
               <i class="far fa-trash-alt delete"></i>
-              <a href="#"><i class="fas fa-pause-circle record-pause"></i></a>
+              <!-- <i style="cursor: pointer" class="fas fa-pause-circle record-pause"></i> -->
+              <i style="cursor: pointer; color: red" class="fas fa-circle record-pause"></i>
+              <i style="cursor: pointer; color:white; position: absolute; margin-top:20px; margin-left: -15px; font-size: 20px;"class="fas fa-square"></i>
               <i class="far fa-paper-plane send"></i>
           </div>
           <div class="setting">
@@ -77,12 +85,17 @@
     </div>
 
     <!-- Third Section -->
-    <div class="third-section">
+    <div style="margin-bottom: 150px;" class="third-section">
         <h2>Third Section</h2>
-        <video style="background-image: linear-gradient(black, white, black)" width="640" height="480" autoplay="true">
-          <source src="media/vdotest.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+        
+          <video muted style="background-image: linear-gradient(black, white, black)" width="640" height="480" autoplay>
+            <source src="media/movie.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+        
+          
+        
+        
           <!-- <div class="play">
             <i class="fas fa-play"></i>
           </div> -->
@@ -116,6 +129,7 @@
       })
 
       // video stream from here...
+
       var video = document.querySelector("#videoElement");
 
       if (navigator.mediaDevices.getUserMedia) {
@@ -127,6 +141,8 @@
             console.log("Something went wrong!");
           });
       }
+
+
       // video2 stream from here...
       var video2 = document.querySelector("#videoElement2");
 
@@ -139,6 +155,7 @@
             console.log("Something went wrong!");
           });
       }
+
     </script>  
 </body>
 </html>

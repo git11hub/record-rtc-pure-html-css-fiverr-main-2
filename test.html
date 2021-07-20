@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/all.min.css">
+    <link rel="stylesheet" href="test.css">
+    <title>Document</title>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        
+        /* The Modal (background) */
+        .modal {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          z-index: 1; /* Sit on top */
+          padding-top: 100px; 
+          left: 0;
+          top: 0;
+          width: 100%; 
+          height: 100%;
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgb(0,0,0); 
+          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+        
+        /* Modal Content */
+        .modal-content {
+          background-color: #fefefe;
+          margin: auto;
+          /* padding: 20px; */
+          /* border: 1px solid #888; */
+          width: 640px;
+          height: 480px;
+          border-radius:20px;
+        }
+        /* Modal Content */
+        .modal-content2 {
+          background-color: #fefefe;
+          margin: auto;
+          /* padding: 20px; */
+          /* border: 1px solid #888; */
+          width: 640px;
+          height: 480px;
+          border-radius:20px;
+        }
+        /* Modal Content */
+        .modal-content3 {
+          background-color: #fefefe;
+          margin: auto;
+          /* padding: 20px; */
+          /* border: 1px solid #888; */
+          width: 640px;
+          height: 480px;
+          border-radius:20px;
+        }
+        
+        /* The Close Button */
+        /* .close {
+          color: red;
+          float: right;
+          font-size: 20px;
+          font-weight: bold;
+          margin-top: -15px;
+          margin-right: -10px;
+        }
+        
+        .close:hover,
+        .close:focus {
+          color: #000;
+          text-decoration: none;
+          cursor: pointer;
+        } */
+        </style>
+</head>
+<body>
+    <h2>Modal Example</h2>
+
+    <button id="myBtn">Open Modal</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal Camera Permission -->
+      <div class="modal-content">
+          <!-- <span class="close">&times;</span> -->
+          <!-- <span class="close"><i class="fas fa-times"></i></span> -->
+          
+          <!-- <div class="cross close">
+              <i class="fas fa-times"></i>
+          </div> -->
+          <div class="">
+              <!-- <h2>Asking Camera Permission (Modal)</h2> -->
+                <div class="camera-permission">
+                  <p>ASK FOR MIC/CAMERA PERMISSION HERE IF NOT SET AT TIME OF INSTALL</p>
+                  <button onclick="start()" class="start-btn">START</button>
+                  <div style="margin-top: -347px; margin-left: 629px" class="cross">
+                    <i class="fas fa-times"></i>
+                </div>
+                </div>
+          </div>
+      </div>
+
+      <!-- Modal First Section -->
+
+      <div class="first-section modal-content">
+        <!-- <h2>First Section</h2> -->
+        <div style="width:640px; height:480px; overflow:hidden; border-radius:20px">
+          <video muted id="videoElement" autoplay style="background-image: linear-gradient(black, white, black); width:853px; margin-top:-80px">
+            <source src="media/sampleVideo.mkv" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+          <div class="icons">
+              <i class="far fa-trash-alt delete"></i>
+              <i onclick="firstRecord()" style="cursor: pointer" class="fas fa-circle record"></i>
+              <i class="far fa-paper-plane send"></i>
+          </div>
+          <div class="setting">
+            <i class="fas fa-cog"></i>
+          </div>
+          <div class="cross">
+              <i class="fas fa-times"></i>
+          </div>
+      </div>
+
+      <!-- Modal Second Section -->
+
+      <div class="second-section modal-content2">
+        <!-- <h2>Second Section</h2> -->
+        <div style="width:640px; height:480px; overflow:hidden; border-radius:20px">
+          <video id="videoElement2" autoplay="true" style="background-image: linear-gradient(black, white, black); width:853px; margin-top:-80px">
+            <!-- <source src="media/sampleVideo.mkv" type="video/mp4"> -->
+              Your browser does not support the video tag.
+            </video>
+        </div>
+        
+          <div style="display:flex; position: absolute; margin-left: 283px; margin-top:-200px;" class="time">              
+            <i style="color:white; margin-top: 17px; margin-right:5px" class="fas fa-pause"></i>
+            <p style="color:white">04:27</p>
+          </div>
+          <div class="icons">            
+              <i class="far fa-trash-alt delete"></i>
+              <!-- <i style="cursor: pointer" class="fas fa-pause-circle record-pause"></i> -->
+              <div onclick="secondStop()">
+                <i style="cursor: pointer; color: red" class="fas fa-circle record-pause"></i>
+                <i style="cursor: pointer; color:white; position: absolute; margin-top:20px; margin-left: -15px; font-size: 20px;"class="fas fa-square"></i>
+              </div>
+              
+              <i class="far fa-paper-plane send"></i>
+          </div>
+          <div class="setting">
+            <i class="fas fa-cog"></i>
+          </div>
+          <div class="cross">
+              <i class="fas fa-times"></i>
+          </div>
+    </div>
+
+    <!-- Modal Third Section -->
+    <div style="margin-bottom: 150px; overflow:hidden; border-radius:20px" class="third-section modal-content3">
+      <!-- <h2>Third Section</h2> -->
+      
+        <video controls style="background-image: linear-gradient(black, white, black)" width="640" height="480">
+          <source src="media/movie.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+      
+        <!-- <div class="play">
+          <i class="fas fa-play"></i>
+        </div> -->
+        <div class="icons">
+            <i style="color: white; cursor: pointer;" class="far fa-trash-alt delete"></i>
+            <i style="color: white; cursor: pointer; font-size:20px; width:20px; padding: 20px" class="fas fa-play record"></i>
+            <i style="color: white; cursor: pointer; background-color: rgb(17, 172, 233);" class="far fa-paper-plane send"></i>
+        </div>
+        <div class="setting">
+          <i class="fas fa-cog"></i>
+        </div>
+        <div class="cross close">
+            <i class="fas fa-times"></i>
+        </div>
+  </div>
+
+    </div>
+
+    <script>
+      // Get the modal
+      var modal = document.getElementById("myModal");
+
+      // Get the button that opens the modal
+      var btn = document.getElementById("myBtn");
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks the button, open the modal 
+      btn.onclick = function() {
+      modal.style.display = "block";
+      }
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+      modal.style.display = "none";
+      }
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+      }
+
+
+      // Start Button click
+      const firstSection = document.getElementsByClassName("first-section")[0];
+      const modalContent = document.getElementsByClassName("modal-content")[0];
+      function start(){
+        modalContent.style.display= "none";
+        firstSection.style.display= "block";
+        console.log("clicked he he he...");
+      }
+
+      // First Record click
+        const secondSection = document.getElementsByClassName("second-section")[0];
+        const modalContent2 = document.getElementsByClassName("modal-content2")[0];
+      function firstRecord(){
+        modalContent2.style.display= "block";
+        firstSection.style.display= "none";
+        console.log("clicked he he...");
+      }
+
+      // Second Stop click
+      const thirdSection = document.getElementsByClassName("third-section")[0];
+      const modalContent3 = document.getElementsByClassName("modal-content2")[0];
+      function secondStop(){
+        modalContent3.style.display= "none";
+        thirdSection.style.display= "block";
+        console.log("clicked he he...");
+      }
+
+      // video stream from here...
+
+      var video = document.querySelector("#videoElement");
+
+      if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true })
+          .then(function (stream) {
+            video.srcObject = stream;
+          })
+          .catch(function (err0r) {
+            console.log("Something went wrong!");
+          });
+      }
+
+      // video2 stream from here...
+      var video2 = document.querySelector("#videoElement2");
+
+      if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true })
+          .then(function (stream) {
+            video2.srcObject = stream;
+          })
+          .catch(function (err0r) {
+            console.log("Something went wrong!");
+          });
+      }
+
+    </script>
+</body>
+</html>
