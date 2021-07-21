@@ -68,17 +68,16 @@
     margin-top: -145px;    
     text-align: center;
     /* margin-left: 100px; */
-    opacity: 30%;
+    opacity: 100%;
     transition:opacity 1s;
   }
-  .icons:hover {
+  /* .icons:hover {
     position: relative;
     margin-top: -145px;
     text-align: center;
-    /* margin-left: 170px; */
     opacity:100%;
     transition:opacity 1s;
-  }
+  } */
 
   .delete {
     position: absolute;
@@ -95,7 +94,7 @@
   .record {
     position: absolute;
     margin-left: -40px;
-    margin-top: -10px;
+    margin-top: -6px;
     color: red;
     font-size: 60px;
     overflow: hidden;

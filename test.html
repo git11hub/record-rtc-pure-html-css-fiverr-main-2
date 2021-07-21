@@ -72,12 +72,27 @@
           text-decoration: none;
           cursor: pointer;
         } */
+
+        .button-red {
+          background-color: red; /* Red */
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+          border-radius:5px;
+          margin-top:600px;
+          margin-left: 1200px;
+        }
         </style>
 </head>
 <body>
-    <h2>Modal Example</h2>
 
-    <button id="myBtn">Open Modal</button>
+    <button id="myBtn" class="button-red">Talk Mail</button>
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -161,7 +176,7 @@
     <div style="margin-bottom: 150px; overflow:hidden; border-radius:20px" class="third-section modal-content3">
       <!-- <h2>Third Section</h2> -->
       
-        <video controls style="background-image: linear-gradient(black, white, black)" width="640" height="480">
+        <video id="play-button" controls style="background-image: linear-gradient(black, white, black)" width="640" height="480">
           <source src="media/movie.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -171,7 +186,8 @@
         </div> -->
         <div class="icons">
             <i style="color: white; cursor: pointer;" class="far fa-trash-alt delete"></i>
-            <i style="color: white; cursor: pointer; font-size:20px; width:20px; padding: 20px" class="fas fa-play record"></i>
+            <i onclick="playThis()" id="play-icon" style="color: white; cursor: pointer; font-size:20px; width:20px; padding: 20px" class="fas fa-play record"></i>
+            <i onclick="pauseThis()" id="pause-icon" style="color: white; cursor: pointer; font-size:20px; width:20px; padding: 20px; display: none; margin-left: 280px;" class="fas fa-pause record"></i>
             <i style="color: white; cursor: pointer; background-color: rgb(17, 172, 233);" class="far fa-paper-plane send"></i>
         </div>
         <div class="setting">
@@ -265,6 +281,52 @@
             console.log("Something went wrong!");
           });
       }
+
+      // Video play by button click
+      var playButton = document.getElementById("play-button");
+      var playIcon = document.getElementById("play-icon");
+      var pauseIcon = document.getElementById("pause-icon");
+      // Event listener for the play/pause button
+      function playThis(){
+        if (pauseIcon.style.display === "none"){
+          playButton.play();
+          playIcon.style.display ="none";
+          pauseIcon.style.display ="block";
+        }        
+      }
+
+      // Video pause by button click
+      var pauseButton = document.getElementById("pause-button");
+      var pauseIcon = document.getElementById("pause-icon");
+      // Event listener for the play/pause button
+      function pauseThis(){
+        if (playIcon.style.display === "none"){
+          playButton.pause();
+          pauseIcon.style.display ="none";
+          playIcon.style.display ="block";
+          playIcon.style.marginLeft ="280px";
+        }
+        
+      }
+
+
+
+
+      // playButton.addEventListener("click", function() {        
+      //   if (video.paused == true) {
+      //     // Play the video
+      //     video.play();
+
+      //     // Update the button text to 'Pause'
+      //     playButton.innerHTML = "Pause";
+      //   } else {
+      //     // Pause the video
+      //     video.pause();
+
+      //     // Update the button text to 'Play'
+      //     playButton.innerHTML = "Play";
+      //   }
+      // });
 
     </script>
 </body>
