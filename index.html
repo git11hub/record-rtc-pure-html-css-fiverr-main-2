@@ -8,43 +8,115 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
     <style>
-      #second-cross {
-        margin-top:-377px; 
-        margin-left:635px
-      }
-      #second-cross:hover {
-        margin-top:-379px; 
-        margin-left:634px
-      }
-    </style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        
+        /* The Modal (background) */
+        .modal {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          z-index: 1; /* Sit on top */
+          padding-top: 100px; 
+          left: 0;
+          top: 0;
+          width: 100%; 
+          height: 100%;
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgb(0,0,0); 
+          background-color: rgba(0, 0, 0, 0.1); /* Black w/ opacity */
+        }
+        
+        /* Modal Content */
+        .modal-content {
+          background-color: #fefefe;
+          margin: auto;
+          width: 640px;
+          height: 480px;
+          border-radius:20px;
+        }
+        /* Modal Content */
+        .modal-content2 {
+          background-color: #fefefe;
+          margin: auto;
+          width: 640px;
+          height: 480px;
+          border-radius:20px;
+        }
+        /* Modal Content */
+        .modal-content3 {
+          background-color: #fefefe;
+          margin: auto;
+          width: 640px;
+          height: 480px;
+          border-radius:20px;
+        }
 
+        .button-red {
+          background-color: red; /* Red */
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+          border-radius:5px;
+          margin-top:600px;
+          /* margin-left: 1200px; */
+          margin-left: 100px;
+        }
+        </style>
 </head>
-<body class="container">
-    <!-- Asking Camera Permission -->    
-    <div class="">
-        <h2>Asking Camera Permission (Modal)</h2>
-          <div class="camera-permission">
-            <p>ASK FOR MIC/CAMERA PERMISSION HERE IF NOT SET AT TIME OF INSTALL</p>
-            <button class="start-btn">START</button>
-            <div class="cross">
-              <i class="fas fa-times"></i>
-          </div>
-          </div>
-    </div>
+<body>
 
-    <!-- First Section -->
-    <div style="margin: 0 auto; padding: 0" class="first-section">
-        <h2>First Section</h2>
+    <button id="myBtn" class="button-red">Talk Mail</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal Camera Permission -->
+      <div class="modal-content">
+          <div class="">
+                <div class="camera-permission">
+                  <h1>Welcome. Let's record your TalkMail</h1>
+                  <small style="color: gray; margin-top: -20px; margin-left:-150px; position:absolute;">Self video viewers record responses at anytime</small>
+                  
+                  <div>
+                    <img style="width:35%; margin-top: 20px" src="/media/simple-talkmail.png" alt="simple talk-mail">
+                    <div>
+                      <small>You have selected simple TalkMail. <span style="color:blue">Change</span></small>
+                    </div>
+                  </div>
+                  <!-- <p>ASK FOR MIC/CAMERA PERMISSION HERE IF NOT SET AT TIME OF INSTALL</p> -->
+                  <button style="margin-top:15px" onclick="start()" class="start-btn">Let's Begin</button>
+                  <div style="margin-top: -476px; margin-left: 629px" class="cross">
+                    <i class="fas fa-times"></i>
+                </div>
+                </div>
+          </div>
+      </div>
+
+      <!-- Modal First Section -->
+
+      <div class="first-section modal-content">
+        <!-- <h2>First Section</h2> -->
         <div style="width:640px; height:480px; overflow:hidden; border-radius:20px">
           <video muted id="videoElement" autoplay style="background-image: linear-gradient(black, white, black); width:853px; margin-top:-80px">
             <source src="media/sampleVideo.mkv" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
+        <div class="enhance" style="width:130px">
+          <p style="margin-top:8px">Change Action</p>
+        </div>
           <div class="icons">
-              <i class="far fa-trash-alt delete"></i>
-              <a href="#"><i class="fas fa-circle record"></i></a>
-              <i class="far fa-paper-plane send"></i>
+              <div style="cursor: pointer; margin-left: 210px" class="delete">
+                <i style="margin-left: -11px; margin-top: -7px; position: absolute" class="fas fa-times"></i>
+              </div>
+              <i onclick="firstRecord()" style="cursor: pointer" class="fas fa-circle record"></i>
+              <div style="cursor: pointer; margin-left: 358px" class="send">
+                <i style="margin-left: -15px; margin-top: -7px; position: absolute" class="fas fa-paper-plane"></i>
+              </div>
           </div>
           <div class="setting">
             <i class="fas fa-cog"></i>
@@ -52,11 +124,11 @@
           <div class="cross">
               <i class="fas fa-times"></i>
           </div>
-    </div>
+      </div>
 
-    <!-- Second Section -->
-    <div class="second-section">
-        <h2>Second Section</h2>
+      <!-- Modal Second Section -->
+
+      <div class="second-section modal-content2">
         <div style="width:640px; height:480px; overflow:hidden; border-radius:20px">
           <video id="videoElement2" autoplay="true" style="background-image: linear-gradient(black, white, black); width:853px; margin-top:-80px">
             <!-- <source src="media/sampleVideo.mkv" type="video/mp4"> -->
@@ -64,17 +136,25 @@
             </video>
         </div>
         
-
-          <div style="display:flex; position: absolute; margin-left: 287px; margin-top:-200px;" class="time">              
+          <div style="display:flex; position: absolute; margin-left: 283px; margin-top:-200px;" class="time">              
             <i style="color:white; margin-top: 17px; margin-right:5px" class="fas fa-pause"></i>
-            <p>00:04:27</p>
+            <p style="color:white">04:27</p>
           </div>
           <div class="icons">            
-              <i class="far fa-trash-alt delete"></i>
+              <!-- <i class="fas fa-times delete"></i> -->
+              <div style="cursor: pointer; margin-left: 210px" class="delete">
+                <i style="margin-left: -11px; margin-top: -7px; position: absolute" class="fas fa-times"></i>
+              </div>
               <!-- <i style="cursor: pointer" class="fas fa-pause-circle record-pause"></i> -->
-              <i style="cursor: pointer; color: red" class="fas fa-circle record-pause"></i>
-              <i style="cursor: pointer; color:white; position: absolute; margin-top:20px; margin-left: -15px; font-size: 20px;"class="fas fa-square"></i>
-              <i class="far fa-paper-plane send"></i>
+              <div onclick="secondStop()">
+                <i style="cursor: pointer; color: red" class="fas fa-circle record-pause"></i>
+                <i style="cursor: pointer; color:white; position: absolute; margin-top:20px; margin-left: -15px; font-size: 20px;"class="fas fa-square"></i>
+              </div>
+              
+              <div style="cursor: pointer; margin-left: 358px" class="send">
+                <i style="margin-left: -15px; margin-top: -7px; position: absolute" class="fas fa-paper-plane"></i>
+              </div>
+              
           </div>
           <div class="setting">
             <i class="fas fa-cog"></i>
@@ -84,49 +164,94 @@
           </div>
     </div>
 
-    <!-- Third Section -->
-    <div style="margin-bottom: 150px;" class="third-section">
-        <h2>Third Section</h2>
-        
-          <video muted style="background-image: linear-gradient(black, white, black)" width="640" height="480" autoplay>
-            <source src="media/movie.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-        
-          
-        
-        
-          <!-- <div class="play">
-            <i class="fas fa-play"></i>
-          </div> -->
-          <div class="icons">
-              <i style="color: white; cursor: pointer;" class="far fa-trash-alt delete"></i>
-              <i style="color: white; cursor: pointer; font-size:20px; width:20px; padding: 20px" class="fas fa-play record"></i>
-              <i style="color: white; cursor: pointer; background-color: rgb(17, 172, 233);" class="far fa-paper-plane send"></i>
-          </div>
-          <div class="setting">
-            <i class="fas fa-cog"></i>
-          </div>
-          <div class="cross">
-              <i class="fas fa-times"></i>
-          </div>
+    <!-- Modal Third Section -->
+    <div style="margin-bottom: 150px; overflow:hidden; border-radius:20px" class="third-section modal-content3">
+      <!-- <h2>Third Section</h2> -->
+      
+        <video id="play-button" controls style="background-image: linear-gradient(black, white, black)" width="640" height="480">
+          <source src="media/movie.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+      
+        <div class="enhance">
+          <p style="margin-top:8px">Enhance</p>
+        </div>
+        <div style="margin-top: -149px" class="icons">
+            <!-- <i style="color: red; cursor: pointer; background-color:white" class="fas fa-times delete"></i> -->
+            <div style="cursor: pointer; background-color: white; margin-left: 210px" class="delete">
+              <i style="color:red; margin-left: -11px; margin-top: -7px; position: absolute" class="fas fa-times"></i>
+            </div>
+            <i onclick="playThis()" id="play-icon" style="color: white; cursor: pointer; font-size:24px; width:24px; height:24px; padding: 20px" class="fas fa-play record"></i>
+            <i onclick="pauseThis()" id="pause-icon" style="color: white; cursor: pointer; font-size:24px; width:24px; height:24px; padding: 20px; display: none; margin-left: 280px;" class="fas fa-pause record"></i>
+            <div style="color: white; cursor: pointer; background-color: white; margin-left: 358px" class="send">
+              <i style="color:green; margin-left: -15px; margin-top: -7px; position: absolute" class="fas fa-paper-plane"></i>
+            </div>
+            
+        </div>
+        <div class="setting">
+          <i class="fas fa-cog"></i>
+        </div>
+        <div class="cross close">
+            <i class="fas fa-times"></i>
+        </div>
+  </div>
+
     </div>
 
-    <!-- Animation -->
-    <script type='text/javascript'>
-      const icons = document.querySelectorAll('a');
-      icons.forEach(icon => {
-        icon.addEventListener('click', function(e) {
-          e.preventDefault();
+    <script>
+      // Get the modal
+      var modal = document.getElementById("myModal");
 
-          let ripples = document.createElement('span');
-          this.appendChild(ripples);
+      // Get the button that opens the modal
+      var btn = document.getElementById("myBtn");
 
-          setTimeout(() => {
-            ripples.remove()
-          },200);
-        })
-      })
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks the button, open the modal 
+      btn.onclick = function() {
+      modal.style.display = "block";
+      }
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+      modal.style.display = "none";
+      }
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+      }
+
+
+      // Start Button click
+      const firstSection = document.getElementsByClassName("first-section")[0];
+      const modalContent = document.getElementsByClassName("modal-content")[0];
+      function start(){
+        modalContent.style.display= "none";
+        firstSection.style.display= "block";
+        console.log("clicked he he he...");
+      }
+
+      // First Record click
+        const secondSection = document.getElementsByClassName("second-section")[0];
+        const modalContent2 = document.getElementsByClassName("modal-content2")[0];
+      function firstRecord(){
+        modalContent2.style.display= "block";
+        firstSection.style.display= "none";
+        console.log("clicked he he...");
+      }
+
+      // Second Stop click
+      const thirdSection = document.getElementsByClassName("third-section")[0];
+      const modalContent3 = document.getElementsByClassName("modal-content2")[0];
+      function secondStop(){
+        modalContent3.style.display= "none";
+        thirdSection.style.display= "block";
+        console.log("clicked he he...");
+      }
 
       // video stream from here...
 
@@ -142,7 +267,6 @@
           });
       }
 
-
       // video2 stream from here...
       var video2 = document.querySelector("#videoElement2");
 
@@ -156,6 +280,32 @@
           });
       }
 
-    </script>  
+      // Video play by button click
+      var playButton = document.getElementById("play-button");
+      var playIcon = document.getElementById("play-icon");
+      var pauseIcon = document.getElementById("pause-icon");
+      // Event listener for the play/pause button
+      function playThis(){
+        if (pauseIcon.style.display === "none"){
+          playButton.play();
+          playIcon.style.display ="none";
+          pauseIcon.style.display ="block";
+        }        
+      }
+
+      // Video pause by button click
+      var pauseButton = document.getElementById("pause-button");
+      var pauseIcon = document.getElementById("pause-icon");
+      // Event listener for the play/pause button
+      function pauseThis(){
+        if (playIcon.style.display === "none"){
+          playButton.pause();
+          pauseIcon.style.display ="none";
+          playIcon.style.display ="block";
+          playIcon.style.marginLeft ="280px";
+        }        
+      }
+
+    </script>
 </body>
 </html>
