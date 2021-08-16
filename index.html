@@ -140,7 +140,7 @@
                         <h3>Simple TalkMail</h3>
                         <small>Self Video anyone can see</small>
                       </div>
-                      <button style="margin-top:15px; border-radius:25px" class="start-btn">Select</button>
+                      <button style="margin-top:15px; border-radius:25px" class="start-btn" onclick="simpleTalkMail()">Select</button>
                     </div>
                   </div>
                   
@@ -148,10 +148,10 @@
                     <img style="width:100%" src="/media/rectangle2.png" alt="talk-mail type">
                     <div>
                       <div>
-                        <h3>Simple TalkMail</h3>
-                        <small>Self Video anyone can see</small>
+                        <h3>Self-Destruct TalkMail</h3>
+                        <small>Self Video One-time viewing</small>
                       </div>
-                      <button style="margin-top:15px; border-radius:25px" class="start-btn">Select</button>
+                      <button style="margin-top:15px; border-radius:25px" class="start-btn" onclick="selfDestructTalkMail()">Select</button>
                     </div>
                   </div>
                   
@@ -159,21 +159,94 @@
                     <img style="width:100%" src="/media/rectangle3.png" alt="talk-mail type">
                     <div>
                       <div>
-                        <h3>Simple TalkMail</h3>
-                        <small>Self Video anyone can see</small>
+                        <h3>Group-feedBack TalkMail</h3>
+                        <small>Self video viewers record responses at anytime</small>
                       </div>
-                      <button style="margin-top:15px; border-radius:25px" class="start-btn">Select</button>
+                      <button style="margin-top:15px; border-radius:25px" class="start-btn" onclick="groupFeedbackTalkMail()">Select</button>
                     </div>
                   </div>
                 </div>
-                
-                
                 <div style="margin-top: -476px; margin-left: 629px" class="cross">
                   <i class="fas fa-times"></i>
               </div>
               </div>
         </div>
     </div>
+
+    <!-- Modal Single Simple TalkMail -->
+    <div style="display:none"class="modal-content simple-talk-mail">
+      <div class="">
+            <div class="camera-permission">
+              <h1>Select Your TalkMail Type</h1>
+              <small style="color: gray; margin-top: -20px; margin-left:-150px; position:absolute;">Self video viewers record responses at anytime</small>
+              <div style="display:flex;margin-top:50px">
+                <div style="margin-left:40px; margin-right:10px">
+                  <img style="width:100%" src="/media/rectangle1.png" alt="talk-mail type">
+                  <div>
+                    <div>
+                      <h3>Simple TalkMail</h3>
+                      <small>Self Video anyone can see</small>
+                    </div>
+                    <button style="margin-top:15px; border-radius:25px" class="start-btn" onclick="simpleToFirstSection()">Select</button>
+                  </div>
+                </div>
+              </div>
+              <div style="margin-top: -476px; margin-left: 629px" class="cross">
+                <i class="fas fa-times"></i>
+            </div>
+            </div>
+      </div>
+  </div>
+
+    <!-- Modal Single Self Destruct TalkMail -->
+    <div style="display:none"class="modal-content self-destruct-talk-mail">
+      <div class="">
+            <div class="camera-permission">
+              <h1>Select Your TalkMail Type</h1>
+              <small style="color: gray; margin-top: -20px; margin-left:-150px; position:absolute;">Self video viewers record responses at anytime</small>
+              <div style="display:flex;margin-top:50px">
+                <div style="margin-left:40px; margin-right:10px">
+                  <img style="width:100%" src="/media/rectangle2.png" alt="talk-mail type">
+                  <div>
+                    <div>
+                      <h3>Simple TalkMail</h3>
+                      <small>Self Video anyone can see</small>
+                    </div>
+                    <button style="margin-top:15px; border-radius:25px" class="start-btn" onclick="selfDestructToFirstSection()">Select</button>
+                  </div>
+                </div>
+              </div>
+              <div style="margin-top: -476px; margin-left: 629px" class="cross">
+                <i class="fas fa-times"></i>
+            </div>
+            </div>
+      </div>
+  </div>
+
+    <!-- Modal Single Group Feedback TalkMail -->
+    <div style="display:none"class="modal-content group-feedback-talk-mail">
+      <div class="">
+            <div class="camera-permission">
+              <h1>Select Your TalkMail Type</h1>
+              <small style="color: gray; margin-top: -20px; margin-left:-150px; position:absolute;">Self video viewers record responses at anytime</small>
+              <div style="display:flex;margin-top:50px">
+                <div style="margin-left:40px; margin-right:10px">
+                  <img style="width:100%" src="/media/rectangle3.png" alt="talk-mail type">
+                  <div>
+                    <div>
+                      <h3>Simple TalkMail</h3>
+                      <small>Self Video anyone can see</small>
+                    </div>
+                    <button style="margin-top:15px; border-radius:25px" class="start-btn" onclick="groupFeedbackToFirstSection()">Select</button>
+                  </div>
+                </div>
+              </div>
+              <div style="margin-top: -476px; margin-left: 629px" class="cross">
+                <i class="fas fa-times"></i>
+            </div>
+            </div>
+      </div>
+  </div>
 
       <!-- <div class="second-section modal-talk-mail-type">
         <div style="width:640px; height:480px; overflow:hidden; border-radius:20px">
@@ -316,6 +389,51 @@
       function changeAction(){
         modalTalkMailType.style.display= "block";
         firstSection.style.display= "none";
+        console.log("clicked he he...");
+      }
+
+      // Simple TalkMail click
+        // const secondSection = document.getElementsByClassName("second-section")[0];
+        const simpleTalkMailType = document.getElementsByClassName("simple-talk-mail")[0];
+      function simpleTalkMail(){
+        simpleTalkMailType.style.display= "block";
+        modalTalkMailType.style.display= "none";
+        console.log("clicked he he...");
+      }
+      // Simple TalkMail click (Single)
+      function simpleToFirstSection(){
+        firstSection.style.display= "block";
+        simpleTalkMailType.style.display= "none";
+        console.log("clicked he he...");
+      }
+
+      // Self-Destruct TalkMail click
+        // const secondSection = document.getElementsByClassName("second-section")[0];
+        const selfDestructTalkMailType = document.getElementsByClassName("self-destruct-talk-mail")[0];
+      function selfDestructTalkMail(){
+        selfDestructTalkMailType.style.display= "block";
+        modalTalkMailType.style.display= "none";
+        console.log("clicked he he...");
+      }
+      // Self-Destruct TalkMail click (Single)
+      function selfDestructToFirstSection(){
+        firstSection.style.display= "block";
+        selfDestructTalkMailType.style.display= "none";
+        console.log("clicked he he...");
+      }
+
+      // Group-Feedback TalkMail click
+        // const secondSection = document.getElementsByClassName("second-section")[0];
+        const groupFeedbackTalkMailType = document.getElementsByClassName("group-feedback-talk-mail")[0];
+      function groupFeedbackTalkMail(){
+        groupFeedbackTalkMailType.style.display= "block";
+        modalTalkMailType.style.display= "none";
+        console.log("clicked he he...");
+      }
+      // Group-Feedback TalkMail click (Single)
+      function groupFeedbackToFirstSection(){
+        firstSection.style.display= "block";
+        groupFeedbackTalkMailType.style.display= "none";
         console.log("clicked he he...");
       }
 
