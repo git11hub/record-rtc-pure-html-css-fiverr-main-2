@@ -106,7 +106,7 @@
             Your browser does not support the video tag.
           </video>
         </div>
-        <div class="enhance" style="width:130px">
+        <div class="enhance" style="width:130px; cursor: pointer" onclick="changeAction()">
           <p style="margin-top:8px">Change Action</p>
         </div>
           <div class="icons">
@@ -126,7 +126,73 @@
           </div>
       </div>
 
-      <!-- Modal Second Section -->
+      <!-- Modal TalkMail Type -->
+      <div style="display:none"class="modal-content modal-talk-mail-type">
+        <div class="">
+              <div class="camera-permission">
+                <h1>Select Your TalkMail Type</h1>
+                <small style="color: gray; margin-top: -20px; margin-left:-150px; position:absolute;">Self video viewers record responses at anytime</small>
+                <div style="display:flex;margin-top:50px">
+                  <div style="margin-left:40px; margin-right:10px">
+                    <img style="width:100%" src="/media/rectangle1.png" alt="talk-mail type">
+                    <div>
+                      <div>
+                        <h3>Simple TalkMail</h3>
+                        <small>Self Video anyone can see</small>
+                      </div>
+                      <button style="margin-top:15px; border-radius:25px" class="start-btn">Select</button>
+                    </div>
+                  </div>
+                  
+                  <div style="margin-right:10px">
+                    <img style="width:100%" src="/media/rectangle2.png" alt="talk-mail type">
+                    <div>
+                      <div>
+                        <h3>Simple TalkMail</h3>
+                        <small>Self Video anyone can see</small>
+                      </div>
+                      <button style="margin-top:15px; border-radius:25px" class="start-btn">Select</button>
+                    </div>
+                  </div>
+                  
+                  <div style="margin-right:40px">
+                    <img style="width:100%" src="/media/rectangle3.png" alt="talk-mail type">
+                    <div>
+                      <div>
+                        <h3>Simple TalkMail</h3>
+                        <small>Self Video anyone can see</small>
+                      </div>
+                      <button style="margin-top:15px; border-radius:25px" class="start-btn">Select</button>
+                    </div>
+                  </div>
+                </div>
+                
+                
+                <div style="margin-top: -476px; margin-left: 629px" class="cross">
+                  <i class="fas fa-times"></i>
+              </div>
+              </div>
+        </div>
+    </div>
+
+      <!-- <div class="second-section modal-talk-mail-type">
+        <div style="width:640px; height:480px; overflow:hidden; border-radius:20px">
+          <p>Talk mail type</p>
+        </div>
+        
+          <div style="display:flex; position: absolute; margin-left: 283px; margin-top:-200px;" class="time">              
+          </div>
+          <div class="icons">            
+          </div>
+          <div class="setting">
+            <i class="fas fa-cog"></i>
+          </div>
+          <div class="cross">
+              <i class="fas fa-times"></i>
+          </div>
+      </div> -->
+
+      <!-- Modal Second Section (Pause section) -->
 
       <div class="second-section modal-content2">
         <div style="width:640px; height:480px; overflow:hidden; border-radius:20px">
@@ -240,6 +306,15 @@
         const modalContent2 = document.getElementsByClassName("modal-content2")[0];
       function firstRecord(){
         modalContent2.style.display= "block";
+        firstSection.style.display= "none";
+        console.log("clicked he he...");
+      }
+
+      // Change Action click
+        // const secondSection = document.getElementsByClassName("second-section")[0];
+        const modalTalkMailType = document.getElementsByClassName("modal-talk-mail-type")[0];
+      function changeAction(){
+        modalTalkMailType.style.display= "block";
         firstSection.style.display= "none";
         console.log("clicked he he...");
       }
