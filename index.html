@@ -124,6 +124,70 @@
           <div class="cross">
               <i class="fas fa-times"></i>
           </div>
+          <div style="margin-left:-570px; margin-top:10px; cursor:pointer" class="video" onclick="selectRecordType()">
+              <i style="color:white; position: absolute" class="fas fa-video"></i>
+              <span style="color:white; position: absolute; margin-top:25px; margin-left:-10px">video</span>
+          </div>
+          <div style="margin-left:500px; margin-top:10px; cursor:pointer" class="sliders" onclick="branding()">
+              <i style="color:white; position: absolute; margin-left:-7px" class="fas fa-sliders-h"></i>
+              <span style="color:white; position: absolute; margin-top:25px; margin-left:-30px">Branding</span>
+          </div>
+      </div>
+
+        <!-- Modal Select Record Type -->
+        <div style="display:none"class="modal-content select-record-type">
+          <div class="">
+                <div class="camera-permission">
+                  <h1>Select Record Type</h1>
+                  <small style="color: gray; margin-top: -20px; margin-left:-150px; position:absolute;">What makes TalkMail look-like in your Email</small>
+                  <div style="display:flex;margin-top:50px">
+                    <div style="margin-left:40px; margin-right:10px">
+                      <img style="width:100%" src="/media/audio.png" alt="talk-mail type">
+                    </div>
+                    
+                    <div style="margin-right:10px">
+                      <img style="width:100%" src="/media/video.png" alt="talk-mail type">
+                    </div>
+                    
+                    <div style="margin-right:40px">
+                      <img style="width:100%" src="/media/screenshare.png" alt="talk-mail type">
+                    </div>
+                  </div>
+                  <div style="margin-top: -476px; margin-left: 629px" class="cross">
+                    <i class="fas fa-times"></i>
+                </div>
+                <button style="margin-top:15px; border-radius:25px" class="start-btn">Cancel</button>
+                <button style="margin-top:15px; border-radius:25px" class="start-btn" onclick="selectRecordTypeToFirstSection()">Save</button>
+                </div>
+          </div>
+      </div>
+
+        <!-- Modal Branding -->
+        <div style="display:none"class="modal-content branding">
+          <div class="">
+                <div class="camera-permission">
+                  <h1>Branding</h1>
+                  <!-- <small style="color: gray; margin-top: -20px; margin-left:-150px; position:absolute;">What makes TalkMail look-like in your Email</small> -->
+                  <div style="display:flex;margin-top:50px">
+                    <div style="margin-left:40px; margin-right:10px">
+                      <img style="width:100%" src="/media/audio.png" alt="talk-mail type">
+                    </div>
+                    
+                    <div style="margin-right:10px">
+                      <img style="width:100%" src="/media/video.png" alt="talk-mail type">
+                    </div>
+                    
+                    <div style="margin-right:40px">
+                      <img style="width:100%" src="/media/screenshare.png" alt="talk-mail type">
+                    </div>
+                  </div>
+                  <div style="margin-top: -476px; margin-left: 629px" class="cross">
+                    <i class="fas fa-times"></i>
+                </div>
+                <button style="margin-top:15px; border-radius:25px" class="start-btn" onclick="brandingCancelToFirstSection()">Cancel</button>
+                <button style="margin-top:15px; border-radius:25px" class="start-btn" onclick="brandingSaveToFirstSection()">Save</button>
+                </div>
+          </div>
       </div>
 
       <!-- Modal TalkMail Type -->
@@ -380,6 +444,43 @@
       function firstRecord(){
         modalContent2.style.display= "block";
         firstSection.style.display= "none";
+        console.log("clicked he he...");
+      }
+
+      // Select Record click
+      const selectRecordTypeModal = document.getElementsByClassName("select-record-type")[0];
+      function selectRecordType(){
+        selectRecordTypeModal.style.display= "block";
+        firstSection.style.display= "none";
+        console.log("clicked he he...");
+      }
+      // Select Record click
+      // const selectRecordTypeModal = document.getElementsByClassName("select-record-type")[0];
+      function selectRecordTypeToFirstSection(){
+        selectRecordTypeModal.style.display= "none";
+        firstSection.style.display= "block";
+        console.log("clicked he he...");
+      }
+
+      // Branding click
+      const brandingClick = document.getElementsByClassName("branding")[0];
+      function branding(){
+        brandingClick.style.display= "block";
+        firstSection.style.display= "none";
+        console.log("clicked he he...");
+      }
+      // Branding Save to first section click
+      // const selectRecordTypeModal = document.getElementsByClassName("select-record-type")[0];
+      function brandingSaveToFirstSection(){
+        brandingClick.style.display= "none";
+        firstSection.style.display= "block";
+        console.log("clicked he he...");
+      }
+      // Branding Cancel to first section click
+      // const selectRecordTypeModal = document.getElementsByClassName("select-record-type")[0];
+      function brandingCancelToFirstSection(){
+        brandingClick.style.display= "none";
+        firstSection.style.display= "block";
         console.log("clicked he he...");
       }
 
