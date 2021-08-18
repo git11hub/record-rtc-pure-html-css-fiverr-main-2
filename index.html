@@ -404,7 +404,7 @@
       <div class="">
             <div class="camera-permission">
               <h1>Edit video</h1>
-              <small style="color: gray; margin-top: -20px; margin-left:-30px; position:absolute;">What makes TalkMail look-like in your Email</small>
+              <small style="color: gray; margin-top: -20px; margin-left:-125px; position:absolute;">What makes TalkMail look-like in your Email</small>
               <div style="display:flex;margin-top:50px">
               </div>
               <video controls style="margin-top:-50px" width="300" height="300">
@@ -417,7 +417,7 @@
                   <h4 style="padding:10px">Edit Video</h4>
                   <h4 style="color:lightgray; padding:10px">Add Frames</h4>
                   <h4 style="color:lightgray; padding:10px">Insert Styles</h4>
-                <button style="margin-top:15px; border-radius:25px" class="start-btn">Finalize</button>
+                <button style="margin-top:15px; border-radius:25px" class="start-btn" onclick="nextToAddFrames()">Next</button>
                 </div>
                 
               <div style="margin-top: -476px; margin-left: 629px" class="cross">
@@ -426,6 +426,95 @@
             </div>
       </div>
   </div>
+
+    <!-- Modal Add Frames -->
+    <div style="display:none"class="modal-content add-frames">
+      <div class="">
+            <div class="camera-permission">
+              <h1>Add frames</h1>
+              <small style="color: gray; margin-top: -20px; margin-left:-125px; position:absolute;">What makes TalkMail look-like in your Email</small>
+              <div style="display:flex;margin-top:50px">
+              </div>
+              <video controls style="margin-top:-50px" width="300" height="300">
+                <source src="media/movie.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+
+                <div style="display:flex">
+                  <button style="margin-top:15px; border-radius:25px" class="start-btn" onclick="backToEdit()">Back</button>
+                  <h4 style="padding:10px">Edit Video</h4>
+                  <h4 style="padding:10px">Add Frames</h4>
+                  <h4 style="color:lightgray; padding:10px">Insert Styles</h4>
+                <button style="margin-top:15px; border-radius:25px" class="start-btn" onclick="toInsertStyle()">Next</button>
+                </div>
+                
+              <div style="margin-top: -476px; margin-left: 629px" class="cross">
+                <i class="fas fa-times"></i>
+            </div>
+            </div>
+      </div>
+  </div>
+
+    <!-- Modal Insert Style -->
+    <div style="display:none"class="modal-content insert-style">
+      <div class="">
+            <div class="camera-permission">
+              <h1>Insert Style</h1>
+              <small style="color: gray; margin-top: -20px; margin-left:-150px; position:absolute;">What makes TalkMail look-like in your Email</small>
+              <div style="display:flex;margin-top:50px">
+              </div>
+              <video controls style="margin-top:-50px" width="300" height="300">
+                <source src="media/movie.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <div>
+                  <small>You have applied standard style</small>
+                <button onclick="changeStyle()">Change</button>
+                </div>
+                
+
+                <div style="display:flex">
+                  <button style="margin-top:15px; border-radius:25px" class="start-btn" onclick="backAddFrames()">Back</button>
+                  <h4 style="padding:10px">Edit Video</h4>
+                  <h4 style="padding:10px">Add Frames</h4>
+                  <h4 style="padding:10px">Insert Style</h4>
+                <button style="margin-top:15px; border-radius:25px" class="start-btn">Insert TalkMail</button>
+                </div>
+                
+              <div style="margin-top: -476px; margin-left: 629px" class="cross">
+                <i class="fas fa-times"></i>
+            </div>
+            </div>
+      </div>
+  </div>
+
+  <!-- Modal Insert Style Change -->
+  <div style="display:none"class="modal-content insert-style-change">
+    <div class="">
+          <div class="camera-permission">
+            <h1>Insert Style</h1>
+            <small style="color: gray; margin-top: -20px; margin-left:-150px; position:absolute;">What makes TalkMail look-like in your Email</small>
+            <div style="display:flex;margin-top:50px">
+              <div style="margin-left:40px; margin-right:10px">
+                <img style="width:100%" src="/media/audio.png" alt="talk-mail type">
+              </div>
+              
+              <div style="margin-right:10px">
+                <img style="width:100%" src="/media/video.png" alt="talk-mail type">
+              </div>
+              
+              <div style="margin-right:40px">
+                <img style="width:100%" src="/media/screenshare.png" alt="talk-mail type">
+              </div>
+            </div>
+            <div style="margin-top: -476px; margin-left: 629px" class="cross">
+              <i class="fas fa-times"></i>
+          </div>
+          <button style="margin-top:15px; border-radius:25px" class="start-btn" onclick="cancelBackToInsertStyle()">Cancel</button>
+          <button style="margin-top:15px; border-radius:25px" class="start-btn" onclick="saveBackToInsertStyle()">Save</button>
+          </div>
+    </div>
+</div>
 
     <!-- Modal Third Section -->
     <div style="margin-bottom: 150px; overflow:hidden; border-radius:20px" class="third-section modal-content3">
@@ -625,7 +714,58 @@
         finishingTouches.style.display= "block";
         console.log("clicked he he...");
       }
+      
+      // Add Frames
+      const addFramesSection = document.getElementsByClassName("add-frames")[0];
+      function nextToAddFrames(){
+        addFramesSection.style.display= "block";
+        editVideo.style.display= "none";
+        console.log("clicked he he...");
+      }
+      // Add Frames to Edit
+      // const addFramesSection = document.getElementsByClassName("add-frames")[0];
+      function backToEdit(){
+        editVideo.style.display= "block";
+        addFramesSection.style.display= "none";
+        console.log("clicked he he...");
+      }
 
+      // Insert Style
+      const insertStyleSection = document.getElementsByClassName("insert-style")[0];
+      function toInsertStyle(){
+        insertStyleSection.style.display= "block";
+        addFramesSection.style.display= "none";
+        console.log("clicked he he...");
+      }
+      // Back to Add Frames
+      // const insertStyleSection = document.getElementsByClassName("insert-style")[0];
+      function backAddFrames(){
+        addFramesSection.style.display= "block";
+        insertStyleSection.style.display= "none";
+        console.log("clicked he he...");
+      }
+
+      // Insert Style
+      const insertStyleChangeSection = document.getElementsByClassName("insert-style-change")[0];
+      function changeStyle(){
+        insertStyleChangeSection.style.display= "block";
+        insertStyleSection.style.display= "none";
+        console.log("clicked he he...");
+      }
+      // Cancel back to Insert Style
+      // const insertStyleChangeSection = document.getElementsByClassName("insert-style-change")[0];
+      function cancelBackToInsertStyle(){
+        insertStyleChangeSection.style.display= "none";
+        insertStyleSection.style.display= "block";
+        console.log("clicked he he...");
+      }
+      // Save back to Insert Style
+      // const insertStyleChangeSection = document.getElementsByClassName("insert-style-change")[0];
+      function saveBackToInsertStyle(){
+        insertStyleChangeSection.style.display= "none";
+        insertStyleSection.style.display= "block";
+        console.log("clicked he he...");
+      }
       // Working here.............
       // Working here.............
       // Working here.............
